@@ -171,10 +171,58 @@ def Dict():
     # Generate a dictionary from a sequence
     mapping= dict(zip(range(10),reversed(range(10))))
     print('mapping={0}'.format(mapping))
+"""
+    Part03: set 集合 集合是一种无序且元素唯一的容器
+"""
+def Set():
+    print(set([2,2,2,1,3,3]))  # create set using set function
+    print({2,2,2,1,2,3})       # create set using {}
+    # set operations
+    set_a = {1,2,3,4,5}        # create set example set_a
+    set_b = {3,4,5,6,7,8}      # create set example set_b
+    # The union of two sets is the union of different elements in the two sets
+    set_union = set_a.union(set_b)         # union set_a and set_b by using union method
+    print('set_a = {0};after union , set_union = {1}'.format(set_a,set_union))
+    set_union = set_a | set_b   # union set_a and set_b by using |
+    print('set_a = {0};after union , set_union = {1}'.format(set_a,set_union))
+
+    # Use the & operator or intersection method to get the intersection
+    set_intersection = set_a.intersection(set_b)    # create intersection by using intersection
+    print('set_a = {0};after intersection , set_intersection = {1}'.format(set_a,set_intersection))
+    set_intersection = set_a & set_b    # create intersection by using & operator
+    print('set_a = {0};after intersection , set_intersection = {1}'.format(set_a,set_intersection))
+    # the above method will not replace the original collection，if we should replace the original collection, you can using last method
+    # 取set_a和set_b的并集，并刷新set_a
+    set_a.update(set_b)
+    print('after update, set_a ={0}'.format(set_a))
+    set_a|=set_b
+    print('after update, set_a ={0}'.format(set_a))
+
+    # add element 10 to set_a by using add method
+    set_a.add(10)
+    print('after add, set_a = {0}'.format(set_a))
+    # remove element from set_a by using remove method
+    set_a.remove(5)
+    print('after remove, set_a = {0}'.format(set_a))
+
+    set_a.intersection_update(set_b)
+    print('set_a = {0}'.format(set_a))
+    set_a &= set_b
+    print('set_a = {0}'.format(set_a))
+
+    # 集合表达式
+    strings = ['a','as','bat','car','dove','python']
+
+    unique_lengths = {len(x) for x in strings}
+    print(unique_lengths)
+
+    set(map(len,strings))
+
 def main():
     # tup()
     # List()
-    Dict()
+    # Dict()
+    Set()
 
 
 if __name__ == '__main__':
